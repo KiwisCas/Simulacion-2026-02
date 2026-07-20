@@ -15,6 +15,7 @@ En el modelo de distribución uniforme se puede entener como dentro de un rango 
 <img width="901" height="223" alt="image" src="https://github.com/user-attachments/assets/6b3c357e-083f-48ae-a594-c153d215870f" />
 
 En cambio, los modelos de probabilidad gaussianos dentro de un rango establecido y, a comparación de los modelos uniformes, este tiene valores de mucho más definidos ya que muchas veces hay ciertos valores que no tienden a ocurrir dentro del rango de datos debido a la media y la desviación estandar (principalmente) que se encarga de que existan ciertos datos que no se alejen de la media, haciendo que la tendencia sea mucho más grande o más pequeña como se aprecia en la imagen
+
 ---
 ## Actividad 2, Caminatas aleatorias
 ---
@@ -196,4 +197,101 @@ En el resultado se puede ver como es una especie de linea que se va dibujando ge
 <img width="940" height="547" alt="image" src="https://github.com/user-attachments/assets/7f45ab53-f763-48c7-83e3-fe95d88dab26" />
 
 
+## Actividad 5 
 
+
+```js
+let walker;
+
+function setup() {
+  createCanvas(600, 600);
+  walker = new Walker();
+  background(255);
+}
+
+function draw() {
+  walker.step();
+  walker.show();
+
+  // Mantener dentro del canvas
+  if (walker.x > width) walker.x = 0;
+  if (walker.x < 0) walker.x = width;
+
+  if (walker.y > height) walker.y = 0;
+  if (walker.y < 0) walker.y = height;
+}
+
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+    this.r = 0;
+
+    this.type = 1;
+
+    this.change = millis() + random(1000, 5000);
+  }
+
+  show() {
+    noStroke();
+
+    if (this.type == 0) {
+      fill(randomGaussian(255, 50), 140, 0, 60);
+      this.r = random (5,10);
+    } else if (this.type == 1) {
+      fill(100, randomGaussian(255, 50), 100,);
+      this.r = random (1,5);
+    } else {
+      fill(0, 100, randomGaussian(255, 50),40);
+      this.r = random (20,15);
+    }
+
+    circle(this.x, this.y, this.r);
+  }
+
+  step() {
+
+    if (millis() > this.change) {
+
+      this.type = (this.type + 1) % 3;
+
+      if (this.type == 0) {
+        this.x = 0;
+        this.y = 0;
+      } else if (this.type == 1) {
+        this.x = width / 2;
+        this.y = height / 2;
+      } else {
+        this.x = 224;
+        this.y = 150;
+      }
+
+      this.change = millis() + random(1000, 5000);
+    }
+
+    let step = 5;
+
+    let xstep = walk() * step;
+    if (random([false, true])) xstep *= -1;
+
+    let ystep = walk() * step;
+    if (random([false, true])) ystep *= -1;
+
+    this.x += xstep;
+    this.y += ystep;
+  }
+}
+
+function walk() {
+  while (true) {
+    let r1 = random(1);
+    let r2 = random(1);
+
+    let probability = r1 * r1;
+
+    if (r2 < probability) {
+      return r1;
+    }
+  }
+}
+```
