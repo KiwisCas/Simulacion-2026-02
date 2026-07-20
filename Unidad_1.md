@@ -16,7 +16,7 @@ En el modelo de distribución uniforme se puede entener como dentro de un rango 
 
 En cambio, los modelos de probabilidad gaussianos dentro de un rango establecido y, a comparación de los modelos uniformes, este tiene valores de mucho más definidos ya que muchas veces hay ciertos valores que no tienden a ocurrir dentro del rango de datos debido a la media y la desviación estandar (principalmente) que se encarga de que existan ciertos datos que no se alejen de la media, haciendo que la tendencia sea mucho más grande o más pequeña como se aprecia en la imagen
 ---
-## Actividad 2, La aleatoriedad en el arte generativo
+## Actividad 2, Caminatas aleatorias
 ---
 ```js
 // The Nature of Code
@@ -72,9 +72,128 @@ La ejecución de este código da paso a algo como lo que se va a apreciar en la 
 En el código se puede apreciar que en primera instancia se trata de un simple punto que, dentro de su clase hay una función llamada ```step()``` que es la que se encarga de decidir la próxima dirección que va a tomar el punto dentro del sistema, para luego dibujarlo en cada fotograma de la ejecución del código
 
 ---
-## Actividad 2, Distribuciones de probabilidad
+## Actividad 3, Distribuciones de probabilidad
+
+### ¿Cuál es la diferencia entre una ditribución uniforme y gaussiana?
+
+Con mis propias palabras se podría decir que una distribución uniforme es aquella cuyos datos tienen la misma posibilidad de ocurrir en todos los momentos del tiempo, ganandose el nombre de ser uniforme, por otra parte, la distribución gaussiana posee una probabilidad de que una media de datos tenga mayoe oportunidad de ocurrir que otra y muchas veces esas probabilidades de datos pueden llegar a desviarse más o menos de la media por una desviación estandar
+
+### Código modificado para caminata con mayor probabilidad hacia la derecha
+
+---
+#### Resultado
+<img width="646" height="242" alt="image" src="https://github.com/user-attachments/assets/48b11619-b5fc-4765-bb43-e2d32f25b841" />
+
+---
+
+```js
+// The Nature of Code
+// Daniel Shiffman
+// http://natureofcode.com
+
+let walker;
+
+function setup() {
+  createCanvas(640, 240);
+  walker = new Walker();
+  background(255);
+}
+
+function draw() {
+  walker.step();
+  walker.show();
+  if (walker.x > width){
+    walker.x = 0
+  }
+}
+
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+  }
+
+  show() {
+    stroke(100, randomGaussian(255, 50), 100 );
+    fill(100, randomGaussian(255, 50), 100 );
+    circle(this.x, this.y, random(20,50));
+  }
+
+  step() {
+    const choice = floor(random(4));
+    if (choice == 0 || choice == 1) {
+      this.x++;
+    } else if (choice == 1) {
+      this.x--;
+    } else if (choice == 2) {
+      this.y++;
+    } else {
+      this.y--;
+    }
+  }
+}
+
+```
+
+## Actividad 4, Distribución normal
+
+```js
+let movingLine;
+
+function setup() {
+  createCanvas(600, 600);
+  background(220);
+  movingLine = new MovingLine
+}
+
+function draw() {
+
+  
+  movingLine.update();
+  movingLine.display();
+}
+
+class MovingLine{
+  constructor(){
+    this.x = width / 2;
+    this.y = height / 2;
+    this.large = 0
+    this.speed = 0.02;
+    this.angle = 0;
+  }
+
+  update(){
+    this.angle += this.speed;
+    this.large = randomGaussian(250, 10);
+  }
+
+  display(){
+    let x2 = this.x + this.large * cos(this.angle)
+    let y2 = this.y + this.large * sin(this.angle)
+
+    stroke(255, randomGaussian(142, 60), 40, 30);
+    strokeWeight(3);
+    line (this.x, this.y, x2, y2);
+
+  }
+  
+}
+```
+---
+
+### Resultado 
+
+<img width="606" height="606" alt="image" src="https://github.com/user-attachments/assets/9a04a14a-4bcd-4e6b-89b0-3a6a8371d09d" />
 
 
+
+---
+
+En el resultado se puede ver como es una especie de linea que se va dibujando generando un círculo mientras se observa una linea mayormente naranjada que es la que se encarga de dibujar el cículo con algunas variaciones y es ahí donde entra la distribución normal puesto que el largo de las lineas está determinado por una distribución normal con una media de 250 y una desviación estandar de 10, lo que en gráfica se vería algo de este estilo
+
+---
+
+<img width="940" height="547" alt="image" src="https://github.com/user-attachments/assets/7f45ab53-f763-48c7-83e3-fe95d88dab26" />
 
 
 
