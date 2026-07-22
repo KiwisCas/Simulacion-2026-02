@@ -295,3 +295,13 @@ function walk() {
   }
 }
 ```
+### Evidencias
+
+<img width="601" height="598" alt="image" src="https://github.com/user-attachments/assets/f8fb7801-122c-4dcb-afbd-082a739bc530" />
+
+
+
+
+## Reto de diseño
+
+Empecemos por la idea, inicialmente para la idea del festival de ciencia y creatividad me gustaría 
