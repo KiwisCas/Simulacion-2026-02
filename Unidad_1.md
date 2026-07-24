@@ -305,3 +305,12 @@ function walk() {
 ## Reto de diseño
 
 Empecemos por la idea, inicialmente para la idea del festival de ciencia y creatividad me gustaría 
+
+
+
+
+
+https://github.com/user-attachments/assets/75e4bd35-0636-476c-a0cf-d32fd8ea93ec
+
+
+
