@@ -304,15 +304,42 @@ function walk() {
 
 ## Reto de diseño
 
-Empecemos por la idea, inicialmente para la idea del festival de ciencia y creatividad me gustaría 
+Empecemos por la idea, inicialmente para la idea del festival de ciencia y creatividad la idea principal era hacerlo algo parecido al espacio, pero por miedo a la funa por lo tradicional de la IA lo pensé un poco más y debido a ciertos contextos actuales del país, decidí optar por algo más relacionado a los ecosistemas y los biomas y es acá en donde empecé a pensar en el **[Ocean Fest](https://oceanfest.es/#festival)** el cual en palabras de ellos es el Festival del Mar: Arte, Ciencia, Talleres y Música, cuyo objetivo es invita a redescubrir la riqueza, la fragilidad y la importancia del océano promoviendo una relación más consciente con el entorno marino y fomentando el compromiso con su conservación, por lo que con base a esto, tomé como idea el hacer una experiencia que pudiera servir de primera vista a la hora de tener este festival.
+
+### El objetivo de la experiencia
+Lo que me gustaría buscar con esta experiencia es mostrar los ciclos de vida, la evolución y muestra de la diversidad que se encuentra en los biomas marinos y como la cantidad de vidas que hay dentro de espacios tan pequeños como pueden ser en 10 o 20 metros cuadrados pueden albergar grandes cantidades de vida que pueden nacer, existir y morir en pequeños instantes de tiempo sin que nosotros nos demos cuenta de eso.
+
+### Primeros experimentos
+
+Inicialmente quería experimentar con los modelos probabilísticos que iba a usar para tener una idea en general de la experiencia antes de adicionar detalles que pudieran hacer la experiencia más bonita y atractiva buscando en todo momento la naturalidad y los comportamientos emergente de lo que en el momento uno iban a ser meras partículas, pensando que en algún punto se volverían peces y organismos un poco más estilizados (eso lo resolveré en el futuro), por lo que por ahora, me dignaré a explicar los modelos de probabilidad que me gustaría utilizar en mi experiencia:
+
+- **Urna de Pólya:** Realicé una pequeña investigación con IA de modelos probabilísticos interesantes y llegué a este, investigando un poco más por mi cuenta, este modelo suele tener cierta utilidad para generar hábitos en sistemas que tengan estos modelos, por lo que me puede servir para el movimiento de los peces en donde los movimientos repetidos pueden llegar a convertirse en tendencias.
+
+Despues de pensarlo, decidí que esta efectivamente si sirviera en los pesos de las direcciones que iban a tomar las entidades en el sistema por lo que, cada vez que una entidad eligiera una dirección, el peso de la decisión aumenta por lo que la hace más probable a repetirla después.
+
+- **Distribuciones Gaussianas:** El uso que le voy a dar a esta va a ser un poco más sencilla ya que esta va a ser la encargada de generar esos desvíos raros que ocurren cuando ya hay un comportamiento esperado que nace a base de la **Urna de Pólya** donde son esos valores raros los que están más lejos de la media que los comportamientos habituales.
+
+- **Distribuciones de Lévy:** Este se va a encargar de la distancia de los desplazamientos, siendo normalmente pequeños pero, que cada cierto tiempo hay saltos grandes. Sin embargo, quiero recalcar algo, el salto de levy que vimos en el libro de **Nature of Code** es un poco más sencilla y la IA me hizo la recomendación de "complicar" un poco la probabilidad del vuelo de Lévy por medio de una cola pesada, en donde ya no fuera solo una posibilidad u otra, si no que en su lugar existieran probabilidades intermedias, lo que, a largo plazo me ayudó a que el comportamiento de las partículas fuera más natural
+
+- **Probabilidades de Evoluciones e Involuciones:** Esto es para más adelante, pero estas son dos probabilidades que ocurren específicamente cuando hay dos organismos del mismo nivel y uno está lo suficientemente cerca del otro, lo que acciona la probabilidad de que exista una fusión y se muestre una especie más exótica, por el contrario, la probabilidad de involución ocurre de forma muy baja pero a cualquier organismo, lo que hace que "involucione", haciendo que las evoluciones no sean del todo permanentes y dependan de la probabilidad (esto no está implementado en el primer prototipo)
+> Nota: luego recurrí a la idea de que las involuciones también se encarguen de que, esto sea una especie de costo por hacer saltos grandes en la exploración del ecosistema)
+  
+Luego de esto, ya me sentía satisfecho con las probabilidades que iba a usar y con eso procedí a hacer el primer prototipo y fue algo de este estilo.
+
+
+https://github.com/user-attachments/assets/9d5f7d45-b835-42f6-bf92-6d9ed7cb7ba9
+
+
+Para ser un primer prototipo debo admitir que si empecé a cuestionarme ciertas decisiones creativas, pero como se trataba de un primer prototipo iba a esperar a avanzar a una etapa más tardía para ver si debía tomar otro tema u otra decisión creativa, pero luego analizando un poco más la experiencia me dí cuenta que había un aspecto que me había gustado mucho y eso era el movimiento de las partículas, por lo que acá entró el concepto de las evoluciones y volatilmente entró el concepto de los imanes con el mouse, la cual fue una idea que descarté a medias porque, no me gustaba la idea de alterar completamente el movimiento de las prtículas con el mouse así que decidí que en lugar de que se utilizara para ser de imán, el mouse se encargaría de aumentar la probabilidad de sutilmente alterar el movimiento de las partículas más no iba a hacer que estas obligatoriamente cambiaran de movimiento, y luego de esto si pensé en las evoluciones, pero estos serían sistemas visualmente básicos lo cual fue un problema que me encargaría de resolver posteriormente ya que, actualmente lo que más me interesaba en este momento era verificar que los movimientos y los sistemas de probabilidad fueran óptimos, y que las evoluciones funcionaran como debían. por lo que procedí con otro prototipado para una versión dos para probar el sistema de evoluciones, resultando en lo siguiente:
+
+
+
+
+https://github.com/user-attachments/assets/4b97beb8-eafc-4fa4-8173-e294a7e47742
 
 
 
 
 
-https://github.com/user-attachments/assets/75e4bd35-0636-476c-a0cf-d32fd8ea93ec
 
-
-
-https://editor.p5js.org/KiwisCas/full/YgXDqIcZI
 
