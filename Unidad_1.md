@@ -324,9 +324,43 @@ Despues de pensarlo, decidí que esta efectivamente si sirviera en los pesos de 
 - **Probabilidades de Evoluciones e Involuciones:** Esto es para más adelante, pero estas son dos probabilidades que ocurren específicamente cuando hay dos organismos del mismo nivel y uno está lo suficientemente cerca del otro, lo que acciona la probabilidad de que exista una fusión y se muestre una especie más exótica, por el contrario, la probabilidad de involución ocurre de forma muy baja pero a cualquier organismo, lo que hace que "involucione", haciendo que las evoluciones no sean del todo permanentes y dependan de la probabilidad (esto no está implementado en el primer prototipo)
 > Nota: luego recurrí a la idea de que las involuciones también se encarguen de que, esto sea una especie de costo por hacer saltos grandes en la exploración del ecosistema.
   
-Luego de esto, ya me sentía satisfecho con las probabilidades que iba a usar y con eso procedí a hacer el primer prototipo y fue algo de este estilo.
+Luego de esto, ya me sentía satisfecho con las probabilidades que iba a usar y con eso procedí a hacer la interpretación de momentos y luego el primer prototipo y fue algo de este estilo.
+## Interpretación de los cinco momentos del encargo
+
+Uno de los objetivos principales del sistema era traducir los cinco momentos propuestos en el reto de diseño a comportamientos emergentes dentro de un mismo ecosistema, evitando representarlos de manera literal.
+
+### Posibilidad
+
+Al iniciar la experiencia, todas las direcciones posibles poseen prácticamente la misma probabilidad de ser elegidas. Para lograrlo, la urna de direcciones (`bins[]`) comienza con pesos casi iguales, haciendo que los primeros desplazamientos no tengan una preferencia y den la idea de que cualquier dirección o camino puede ocurrir.
+
+### Tendencia
+
+Cada organismo toma una decisión de movimiento aproximadamente cada 3 a 10 segundos. La dirección elegida se selecciona de acuerdo con los pesos actuales de la urna y, una vez tomada, incrementa ligeramente la probabilidad de volver a ser elegida, implementando el modelo de la **Urna de Pólya**.
+
+Cuando un organismo mantiene durante suficiente tiempo una trayectoria alineada con la dirección dominante del ecosistema, comienza a acumular crecimiento (`growth`), permitiéndole evolucionar progresivamente desde formas simples como el plancton hasta organismos de mayor complejidad, como los leviatanes. Si deja de seguir esa tendencia, el crecimiento va a bajar y eventualmente puede retroceder a una forma anterior.
+
+La evolución también puede producirse mediante un segundo mecanismo: cuando dos organismos del mismo nivel permanecen lo suficientemente cerca, existe una probabilidad de que se fusionen y den origen a una nueva forma. Esta probabilidad disminuye conforme aumenta el nivel evolutivo, haciendo que las formas más complejas sean cada vez más difíciles de alcanzar.
+
+### Normalidad
+
+Entre cada decisión de movimiento, la trayectoria de los organismos presenta pequeñas perturbaciones generadas mediante una **distribución normal (gaussiana)**. Estas variaciones producen movimientos orgánicos donde la mayoría de los recorridos permanecen cerca del comportamiento esperado, mientras que desviaciones mayores ocurren con mucha menor frecuencia.
+
+Esto mismo también se utiliza para introducir ligeras variaciones en la velocidad y en el crecimiento de los organismos, evitando comportamientos tan rígidos. Además, hay una probailidad muy baja de que cualquier organismo puede involucionar espontáneamente, recordando que ninguna tendencia garantiza una evolución permanente.
+
+### Excepción
+
+Con una probabilidad baja, un organismo ejecuta un **salto de Lévy**, permitiéndole abandonar completamente su trayectoria habitual y explorar una región diferente del ecosistema, pero a diferencia de una implementación simplificada del vuelo de Lévy, la distancia recorrida se obtiene por una distribución de cola pesada, haciendo que existan múltiples tamaños posibles de salto lo que da sensaciones de movimientos más naturales
+
+Cabe resaltar algo y es que el suceso extraordinario tiene una consecuencia y es que el organismo pierde parte del crecimiento acumulado. Sin embargo, en algunos casos estos eventos raros permiten iniciar nuevas concentraciones de organismos en regiones poco exploradas, funcionando como un efecto "fundador" dentro del ecosistema.
+
+### Influencia
+
+La experiencia continúa funcionando de manera autónoma incluso cuando no existe interacción. Sin embargo, cuando el usuario acerca el cursor, toca la pantalla o interactúa mediante el seguimiento de la mano, los organismos cercanos modifican ligeramente sus decisiones de movimiento hacia esa presencia.
+
+Pero más que controlar directamente el ecosistema, la interacción incrementa el peso que tienen esas decisiones dentro de la urna de probabilidad, haciendo que el visitante influya sobre las tendencias sin imponer completamente el comportamiento del sistema. Una vez desaparece la interacción, esa influencia se desvanece progresivamente y el ecosistema recupera su autonomía.
 
 
+## Primer prototipo
 https://github.com/user-attachments/assets/9d5f7d45-b835-42f6-bf92-6d9ed7cb7ba9
 
 
