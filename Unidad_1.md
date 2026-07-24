@@ -368,7 +368,7 @@ Para ser un primer prototipo debo admitir que si empecé a cuestionarme ciertas 
 
 
 
-
+## Segundo prototipo
 https://github.com/user-attachments/assets/4b97beb8-eafc-4fa4-8173-e294a7e47742
 
 
@@ -380,6 +380,7 @@ Acá me gustaba un poco más la orientación que estaba tomando la idea, ya que 
 
 Aparentemente es el único modelo guardado que tengo y no sé que pasó con el otro que tenía, creo que lo borré del estrés pero bueno, ya casi terminando, ahora tocaba el apartado visual y un pequeño cambio que quería hacer en el sistema, ya que, a pesar de que la experiencia funciona con el mouse, no me llamaba lo suficiente así que decidí ponerme las botas de experiencias y hacer interacciones utilizando Mediapipe por medio de un modelo de Machine Learning de una biblioteca llamada **[ml5.js](https://docs.ml5js.org/#/reference/handpose)** con la cual haría que se pudiera controlar la literna que en un principio se movía con el mouse, ahora podía hacerse con una de las manos, y que en adición a lo anterior cada vez que se tocaran los dedos índice y pulgar, se crearan nuevos organismos de bajo nivel. por lo que, después de solicitar a la IA que quería hacer de la experiencia un ecosistema acuatico con evoluciones notorias entre niveles (peces pequeños, peces medianos, peces grandes, mantarrayas y leviatanes), además de un fondo medio notorio y una linterna para enfocar la posición de donde está el trackeo de las manos para que no se viese un círculo incípido, se terminó con el siguiente prototipo y resultado:
 
+## Tercer prototipo
 
 https://github.com/user-attachments/assets/75e4bd35-0636-476c-a0cf-d32fd8ea93ec
 
@@ -390,12 +391,13 @@ https://editor.p5js.org/KiwisCas/full/YgXDqIcZI
 
 Pero esto no es todo, ya que nuevamente estré en pánico y no sentía mucho atractivo visual así que, pensé agregarle unas cuantas animaciones a las evoluciones e involuciones, unos cuantos cambios a las formas ya que algunas me parcían un poco básicas y variaciones y dinamismo para sentir una mejor narrativa de la experiencia, así que, espcificando estos detalles de diseño e interacciones nuevamente a una IA, solicité que me ayudara con este proceso, manteniendo la estructura de modelos de probabilidad ya que como comenté, me gustó el resultado que obtuve en el diseño de la arquitectura, este sería el resultado final.
 
-https://editor.p5js.org/KiwisCas/full/M5zG_N9xT
-
+## Prototipo Final
 
 
 
 https://github.com/user-attachments/assets/41d8b4db-b937-49d2-a627-a87a87265c4d
+
+https://editor.p5js.org/KiwisCas/full/M5zG_N9xT
 
 
 ## Autoevaluación
