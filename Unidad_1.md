@@ -313,16 +313,16 @@ Lo que me gustaría buscar con esta experiencia es mostrar los ciclos de vida, l
 
 Inicialmente quería experimentar con los modelos probabilísticos que iba a usar para tener una idea en general de la experiencia antes de adicionar detalles que pudieran hacer la experiencia más bonita y atractiva buscando en todo momento la naturalidad y los comportamientos emergente de lo que en el momento uno iban a ser meras partículas, pensando que en algún punto se volverían peces y organismos un poco más estilizados (eso lo resolveré en el futuro), por lo que por ahora, me dignaré a explicar los modelos de probabilidad que me gustaría utilizar en mi experiencia:
 
-- **Urna de Pólya:** Realicé una pequeña investigación con IA de modelos probabilísticos interesantes y llegué a este, investigando un poco más por mi cuenta, este modelo suele tener cierta utilidad para generar hábitos en sistemas que tengan estos modelos, por lo que me puede servir para el movimiento de los peces en donde los movimientos repetidos pueden llegar a convertirse en tendencias.
+- **Urna de Pólya:** Realicé una pequeña investigación con IA de modelos probabilísticos interesantes y llegué a este, investigando un poco más por mi cuenta, este modelo suele tener cierta utilidad para generar hábitos en sistemas que tengan estos modelos, por lo que me puede servir para el movimiento de los peces en donde los movimientos repetidos pueden llegar a convertirse en tendencias, cosa que le pedí ayuda nuevamente a la IA para hacer una urna con un movimiento que se sintiera natural.
 
 Despues de pensarlo, decidí que esta efectivamente si sirviera en los pesos de las direcciones que iban a tomar las entidades en el sistema por lo que, cada vez que una entidad eligiera una dirección, el peso de la decisión aumenta por lo que la hace más probable a repetirla después.
 
 - **Distribuciones Gaussianas:** El uso que le voy a dar a esta va a ser un poco más sencilla ya que esta va a ser la encargada de generar esos desvíos raros que ocurren cuando ya hay un comportamiento esperado que nace a base de la **Urna de Pólya** donde son esos valores raros los que están más lejos de la media que los comportamientos habituales.
 
-- **Distribuciones de Lévy:** Este se va a encargar de la distancia de los desplazamientos, siendo normalmente pequeños pero, que cada cierto tiempo hay saltos grandes. Sin embargo, quiero recalcar algo, el salto de levy que vimos en el libro de **Nature of Code** es un poco más sencilla y la IA me hizo la recomendación de "complicar" un poco la probabilidad del vuelo de Lévy por medio de una cola pesada, en donde ya no fuera solo una posibilidad u otra, si no que en su lugar existieran probabilidades intermedias, lo que, a largo plazo me ayudó a que el comportamiento de las partículas fuera más natural
+- **Distribuciones de Lévy:** Este se va a encargar de la distancia de los desplazamientos, siendo normalmente pequeños pero, que cada cierto tiempo hay saltos grandes. Sin embargo, quiero recalcar algo, el salto de levy que vimos en el libro de **Nature of Code** es un poco más sencilla y la IA me hizo la recomendación de "complicar" un poco la probabilidad del vuelo de Lévy por medio de una cola pesada, en donde ya no fuera solo una posibilidad u otra, si no que en su lugar existieran probabilidades intermedias, lo que, a largo plazo me ayudó a que el comportamiento de las partículas fuera más natural.
 
 - **Probabilidades de Evoluciones e Involuciones:** Esto es para más adelante, pero estas son dos probabilidades que ocurren específicamente cuando hay dos organismos del mismo nivel y uno está lo suficientemente cerca del otro, lo que acciona la probabilidad de que exista una fusión y se muestre una especie más exótica, por el contrario, la probabilidad de involución ocurre de forma muy baja pero a cualquier organismo, lo que hace que "involucione", haciendo que las evoluciones no sean del todo permanentes y dependan de la probabilidad (esto no está implementado en el primer prototipo)
-> Nota: luego recurrí a la idea de que las involuciones también se encarguen de que, esto sea una especie de costo por hacer saltos grandes en la exploración del ecosistema)
+> Nota: luego recurrí a la idea de que las involuciones también se encarguen de que, esto sea una especie de costo por hacer saltos grandes en la exploración del ecosistema.
   
 Luego de esto, ya me sentía satisfecho con las probabilidades que iba a usar y con eso procedí a hacer el primer prototipo y fue algo de este estilo.
 
@@ -340,6 +340,26 @@ https://github.com/user-attachments/assets/4b97beb8-eafc-4fa4-8173-e294a7e47742
 
 
 
+Acá me gustaba un poco más la orientación que estaba tomando la idea, ya que con los modelos descartados de los sistemas planetarios que quería hacer no fueron lo suficientemente interesantes como para resaltar algo más (dejo evidencias de los modelos) ya que muchos se concentraban en unicamente crear sistemas que eran muy sencillo y creo que podrían haber llegado a sentirse un poco más vacíos.
+
+<img width="1185" height="745" alt="image" src="https://github.com/user-attachments/assets/dbd4fd90-c6f6-40e1-9209-4ae4843718cf" />
+
+Aparentemente es el único modelo guardado que tengo y no sé que pasó con el otro que tenía, creo que lo borré del estrés pero bueno, ya casi terminando, ahora tocaba el apartado visual y un pequeño cambio que quería hacer en el sistema, ya que, a pesar de que la experiencia funciona con el mouse, no me llamaba lo suficiente así que decidí ponerme las botas de experiencias y hacer interacciones utilizando Mediapipe por medio de un modelo de Machine Learning de una biblioteca llamada **[ml5.js](https://docs.ml5js.org/#/reference/handpose)** con la cual haría que se pudiera controlar la literna que en un principio se movía con el mouse, ahora podía hacerse con una de las manos, y que en adición a lo anterior cada vez que se tocaran los dedos índice y pulgar, se crearan nuevos organismos de bajo nivel. por lo que, después de solicitar a la IA que quería hacer de la experiencia un ecosistema acuatico con evoluciones notorias entre niveles (peces pequeños, peces medianos, peces grandes, mantarrayas y leviatanes), además de un fondo medio notorio y una linterna para enfocar la posición de donde está el trackeo de las manos para que no se viese un círculo incípido, se terminó con el siguiente prototipo y resultado:
 
 
+https://github.com/user-attachments/assets/75e4bd35-0636-476c-a0cf-d32fd8ea93ec
+
+
+
+https://editor.p5js.org/KiwisCas/full/YgXDqIcZI
+
+
+Pero esto no es todo, ya que nuevamente estré en pánico y no sentía mucho atractivo visual así que, pensé agregarle unas cuantas animaciones a las evoluciones e involuciones, unos cuantos cambios a las formas ya que algunas me parcían un poco básicas y variaciones y dinamismo para sentir una mejor narrativa de la experiencia, así que, espcificando estos detalles de diseño e interacciones nuevamente a una IA, solicité que me ayudara con este proceso, manteniendo la estructura de modelos de probabilidad ya que como comenté, me gustó el resultado que obtuve en el diseño de la arquitectura, este sería el resultado final.
+
+https://editor.p5js.org/KiwisCas/full/M5zG_N9xT
+
+
+
+
+https://github.com/user-attachments/assets/41d8b4db-b937-49d2-a627-a87a87265c4d
 
