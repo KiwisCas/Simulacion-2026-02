@@ -280,5 +280,6 @@ https://github.com/user-attachments/assets/bfa38bd1-4eb3-4366-9654-b5e4a1d4bf45
 | Puedo distinguir y sustentar lo diseñado y lo emergente.                          |      10% |    **95%** |   **9.5** |
 | **Total**                                                                         | **100%** |            |  **95.5** |
 
+**Nota propuesta 95.5 ÷ 20 = 4.78 / 5.0**
 # [Link al proyecto](https://editor.p5js.org/KiwisCas/full/FVun9Rg6L)
 
