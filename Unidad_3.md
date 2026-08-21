@@ -1,6 +1,7 @@
 # Bitácora de Diseño: Instrumento Visual para *Les Alpx*
 **Floating Points — álbum *Crush***
 **URL pública:** [https://kiwiscas.github.io/InstrumentoLesAlpx/](https://kiwiscas.github.io/InstrumentoLesAlpx/)
+**Bridge Opcional: **[https://github.com/KiwisCas/VisualesBridge]
 
 ---
 
