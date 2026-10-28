@@ -1,0 +1,8 @@
+| N.º | Criterio | Justificación | Puntaje |
+|---|---|---|---|
+| 1 | Cumplimiento del encargo | Mi sistema utiliza las letras del nombre de la organización (Meta) y su tipografía, y permite que yo o cualquier usuario juegue con ellas en tiempo real en la Web. En el video se observa que, al mover el cursor, la palabra se rodea de fotos, esferas y conexiones que responden de inmediato, dentro del contexto definido. | 25/25 |
+| 2 | Comprensión y verificación | Conozco los estados del sistema (por ejemplo, la acumulación y dispersión de las fotos, y el cambio de fondo y burbujas), sus reglas y sus interacciones. Puedo explicar y justificar el modelo, y predecir qué ocurre ante un evento en particular o al modificar una regla o un parámetro. | 25/25 |
+| 3 | Interacción e identidad | El proyecto parte del concepto de comunicación de Meta: las fotos que se agrupan, se conectan por líneas y se dispersan representan el intercambio entre personas. Las acciones y sus consecuencias permiten descubrir ese atributo, y esto coincidió con lo observado en las pruebas con otros usuarios, quienes también tuvieron presente el concepto. | 25/25 |
+| 4 | Resolución tipográfica y experiencia de juego | La palabra permanece legible en el centro mientras los elementos se acumulan alrededor, y los cambios de fondo, los colores en degradado y las respuestas visibles marcan el ritmo y dan momentos de lectura entre una interacción y otra. En las pruebas, los usuarios comprendieron la idea principal del sistema. Reconozco que podría reforzar la legibilidad en los momentos de mayor saturación visual. | 22/25 |
+| | **Total** | | **97/100** |
+| | **Nota (0 a 5)** | 97 × 5 ÷ 100 | **4,85** |
